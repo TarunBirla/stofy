@@ -29,15 +29,17 @@ app.use('/Api/uploads', express.static(path.join(__dirname, 'uploads')));
 //     catch((err) => {
 //         console.log(err)
 //     });
-mongoose.connect("mongodb+srv://tarunbirla:tarun5846@tarun.oa1ajpo.mongodb.net/userDBData", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,serverSelectionTimeoutMS: 5000
-}).then(()=>{
-    console.log("MongoDb connection is successfull");
-}).catch((err)=>{
-    console.error(`Error connecting to MongoDb ${err}`);
-})
-app.get("/", (req, res) => { res.send("wellcome mongobd"); });
+const uri = 'mongodb+srv://tarunbirla:tarun5846@tarun.oa1ajpo.mongodb.net/userDB';
+
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+const connection = mongoose.connection;
+
+connection.on('error', console.error.bind(console, 'Connection error:'));
+connection.once('open', () => {
+  console.log('Connected to MongoDB Atlas!');
+});
+app.get("/", (req, res) => { res.send("wellcome- hello h- mongobd"); });
 app.use('/api', authRoutes);
 app.use('/api', productRoutes);
 app.use('/api', latestRoutes);
