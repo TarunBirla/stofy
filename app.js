@@ -31,7 +31,7 @@ app.use('/Api/uploads', express.static(path.join(__dirname, 'uploads')));
 //     });
 mongoose.connect("mongodb+srv://tarunbirla2018:tarun5846@cluster0.fqiztuu.mongodb.net/userDb", {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,serverSelectionTimeoutMS: 5000
 }).then(()=>{
     console.log("MongoDb connection is successfull");
 }).catch((err)=>{
