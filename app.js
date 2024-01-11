@@ -29,7 +29,7 @@ app.use('/Api/uploads', express.static(path.join(__dirname, 'uploads')));
 //     catch((err) => {
 //         console.log(err)
 //     });
-mongoose.connect("mongodb+srv://tarunbirla2018:tarun5846@cluster0.fqiztuu.mongodb.net/userDb", {
+mongoose.connect("mongodb+srv://tarunbirla:tarun5846@tarun.oa1ajpo.mongodb.net/userDB", {
     useNewUrlParser: true,
     useUnifiedTopology: true,serverSelectionTimeoutMS: 5000
 }).then(()=>{
