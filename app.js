@@ -24,11 +24,19 @@ app.use('/Api/uploads', express.static(path.join(__dirname, 'uploads')));
 //     .then(() => console.log("Connected to MongoDB"))
 //     .catch(error => console.error(error));
 
-mongoose.connect("mongodb+srv://tarunbirla2018:tarun5846@cluster0.fqiztuu.mongodb.net/userDb").
-then(() => console.log("Connection successfull")).
-    catch((err) => {
-        console.log(err)
-    });
+// mongoose.connect("mongodb+srv://tarunbirla2018:tarun5846@cluster0.fqiztuu.mongodb.net/userDb").
+// then(() => console.log("Connection successfull")).
+//     catch((err) => {
+//         console.log(err)
+//     });
+mongoose.connect("mongodb+srv://tarunbirla2018:tarun5846@cluster0.fqiztuu.mongodb.net/userDb", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(()=>{
+    console.log("MongoDb connection is successfull");
+}).catch((err)=>{
+    console.error(`Error connecting to MongoDb ${err}`);
+})
 app.get("/", (req, res) => { res.send("wellcome mongobd"); });
 app.use('/api', authRoutes);
 app.use('/api', productRoutes);
