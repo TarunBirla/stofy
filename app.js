@@ -18,7 +18,7 @@ app.use(express.json());
 // Serve static files from the 'uploads' directory
 app.use('/Api/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// mongoose.connect("mongodb+srv://tarunbirla2018:tarun5846@cluster0.fqiztuu.mongodb.net/?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true ,
+// mongoose.connect("mongodb+srv://tbirla210:tarun@5846@cluster0.bi9tgwv.mongodb.net/userDBData", { useNewUrlParser: true, useUnifiedTopology: true ,
 // serverSelectionTimeoutMS: 5000, // Set to a higher value if needed
 // socketTimeoutMS: 45000, })
 //     .then(() => console.log("Connected to MongoDB"))
